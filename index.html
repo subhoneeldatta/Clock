@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="clock"></div>
+  <script src="radialIndicator.js"></script>
+  <script src="angular.radialIndicator.js"></script>
+  <script type="text/javascript" src="particles.js"></script>
+  <script type="text/javascript" src="color.js"></script>
+  <script type="text/javascript">
+  var radialObj = radialIndicator('#clock', {
+  radius: 150,
+  barWidth: 10,
+  barColor: '#ff7878',
+  minValue: 0,
+  maxValue: 60,
+  fontWeight: 'normal',
+  roundCorner: true,
+  format: function (value) {
+      var date = new Date();
+      return date.getHours() + ':' + date.getMinutes();
+  }
+});
+
+setInterval(function () {
+  radialObj.value(new Date().getSeconds() + 1);
+}, 1000);
+  </script>
+</body>
+</html>
